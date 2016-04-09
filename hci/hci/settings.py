@@ -80,8 +80,8 @@ TEMPLATES = [
 
 if ON_OPENSHIFT:
     # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = False
-    TEMPLATE_DEBUG = False
+    DEBUG = True
+    TEMPLATE_DEBUG = True
     ALLOWED_HOSTS = ['*']
     # Database
     # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -99,8 +99,8 @@ if ON_OPENSHIFT:
     MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'),'media')
 
 else:
-    DEBUG = False
-    TEMPLATE_DEBUG = False
+    DEBUG = True
+    TEMPLATE_DEBUG = True
     ALLOWED_HOSTS = []
     # Database
     # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
