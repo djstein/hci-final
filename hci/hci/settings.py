@@ -100,7 +100,7 @@ if ON_OPENSHIFT:
 
 else:
     DEBUG = True
-    TEMPLATE_DEBUG = True
+    TEMPLATE_DEBUG = False
     ALLOWED_HOSTS = []
     # Database
     # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
