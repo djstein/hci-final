@@ -63,3 +63,6 @@ target/
 
 # Mac OS X folder properties
 .DS_Store
+
+# Virtual Environment
+.env
