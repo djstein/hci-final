@@ -158,5 +158,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'wsgi', 'static')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'boostourteam', 'static'),
+    os.path.join(BASE_DIR, 'rockclimb', 'static'),
 )
