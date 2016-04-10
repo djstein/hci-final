@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm, EmailField, TextInput, Select, Form, CharField
+from models import *
 
 class UserCreateForm(UserCreationForm):
     email = EmailField(required=True)
@@ -15,3 +16,14 @@ class UserCreateForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class ClimbCreateForm(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(ClimbCreateForm, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = Climb
+        fields = '__all__'
+        exclude = [
+        ]

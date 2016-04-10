@@ -16,6 +16,24 @@ class HomePageView(TemplateView):
     """
     template_name = 'rockclimb/home.html'
 
+class DashboardView(TemplateView):
+    """
+    TemplateView for Dashboard Page
+
+    Attributes:
+        template_name (str): Template to be rendered
+    """
+    template_name = 'rockclimb/dashboard.html'
+
+class ClimbView(TemplateView):
+    """
+    TemplateView for Climb Page
+
+    Attributes:
+        template_name (str): Template to be rendered
+    """
+    template_name = 'rockclimb/climb.html'
+
 
 class RegisterView(CreateView):
     """CreateView for User
@@ -32,6 +50,7 @@ class RegisterView(CreateView):
     success_message = "Account created successfully!"
     success_url = reverse_lazy('home')
     template_name = 'registration/register.html'
+
 
     def form_valid(self, form):
         """

@@ -4,6 +4,9 @@ from django.contrib.auth.views import logout, login
 
 urlpatterns = [
     url(r'^$', HomePageView.as_view(), name='home'),
+    url(r'^dashboard/$', DashboardView.as_view(), name='dashboard'),
+
+
 
     # Account login, logout, register account
     url(r'^accounts/login/$', login, name='login'),
