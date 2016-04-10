@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, CreateView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import authenticate, login
 
-from forms import *
+from rockclimb.forms import *
 
 
 # Create your views here.
