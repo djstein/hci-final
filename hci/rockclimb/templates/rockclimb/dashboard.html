@@ -1,7 +1,6 @@
 {% extends 'rockclimb/base.html' %}
 {% block content %}
 {% load staticfiles %}
-<h1> Dashboard </h1>
 
 {% if climb %}
 	<div class="row ">
@@ -21,7 +20,7 @@
 		</div>
 
 		<!-- if last column in row -->
-	    {% if forloop.counter|divisibleby:"4" and not forloop.last %}
+	    {% if forloop.counter|divisibleby:"3" and not forloop.last %}
 	        </div><div class="row">
 	    {% endif %}
 		{% endfor %}
