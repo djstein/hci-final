@@ -3,6 +3,32 @@
 {% load staticfiles %}
 <h1> Dashboard </h1>
 
-<a href={% url 'rockclimb:dashboard' pk=business_unit.pk %}>{{business_unit.name}}</a>
+{% if climb %}
+	<div class="row ">
+	{% for climb in climb %}
+		<div class = "col-xs-12 col-sm-6 ">
+			<div class="thumbnail" id="box-shadow">
+
+				<a href="/{{ climb.image }}" data-lightbox="climbImages" data-title="{{climb.name}}" class="thumbnail" id="thumbnail">
+				<img id="climbImages" src= "/{{ climb.image }}" alt="{{climb.name}}">
+				<br>
+				</a>
+				<div class="text-center" id="image-text">
+					<h3>{{ climb.name }}</h3> 
+					<i>5.{{ climb.difficulty }}{{climb.grade}}</i><br>
+				</div>
+			</div>
+		</div>
+
+		<!-- if last column in row -->
+	    {% if forloop.counter|divisibleby:"4" and not forloop.last %}
+	        </div><div class="row">
+	    {% endif %}
+		{% endfor %}
+	</div>
+{% else %}
+	<p> No climbs </p>
+{% endif %}
+
 
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import authenticate, login
 
@@ -33,6 +33,29 @@ class ClimbView(TemplateView):
         template_name (str): Template to be rendered
     """
     template_name = 'rockclimb/climb.html'
+
+class ClimbCreateView( CreateView):
+    template_name = 'rockclimb/create_climb.html'
+    form_class = ClimbCreateForm
+    model = Climb
+
+    def get_success_url(self):
+       return reverse_lazy('rockclimb:dashboard')
+
+    def form_valid(self, form):
+        response = super(ClimbCreateView, self).form_valid(form)
+        form.instance.user.add(self.request.user)
+        return response
+
+class ClimbDeleteView( DeleteView):
+    model = Climb
+    template_name_suffix = 'rockclimb/delete_climb.html'
+
+    def get_object(self):
+        return Climb.objects.get(pk=self.kwargs['climb'])
+
+    def get_success_url(self):
+        return reverse_lazy('rockclimb:dashboard')
 
 
 class RegisterView(CreateView):
