@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 from rockclimb.forms import *
 
@@ -16,7 +18,7 @@ class HomePageView(TemplateView):
     """
     template_name = 'rockclimb/home.html'
 
-class DashboardView(TemplateView):
+class DashboardView(LoginRequiredMixin, TemplateView):
     """
     TemplateView for Dashboard Page
 
@@ -32,7 +34,7 @@ class DashboardView(TemplateView):
 
         return context
 
-class ClimbView(TemplateView):
+class ClimbView(LoginRequiredMixin, TemplateView):
     """
     TemplateView for Climb Page
 
@@ -41,20 +43,19 @@ class ClimbView(TemplateView):
     """
     template_name = 'rockclimb/climb.html'
 
-class ClimbCreateView( CreateView):
+class ClimbCreateView(LoginRequiredMixin, CreateView):
     template_name = 'rockclimb/create_climb.html'
     form_class = ClimbCreateForm
     model = Climb
 
     def get_success_url(self):
-       return reverse_lazy('rockclimb:dashboard')
+       return reverse_lazy('dashboard')
 
     def form_valid(self, form):
         response = super(ClimbCreateView, self).form_valid(form)
-        form.instance.user.add(self.request.user)
         return response
 
-class ClimbDeleteView( DeleteView):
+class ClimbDeleteView(LoginRequiredMixin, DeleteView):
     model = Climb
     template_name_suffix = 'rockclimb/delete_climb.html'
 
@@ -62,7 +63,7 @@ class ClimbDeleteView( DeleteView):
         return Climb.objects.get(pk=self.kwargs['climb'])
 
     def get_success_url(self):
-        return reverse_lazy('rockclimb:dashboard')
+        return reverse_lazy('dashboard')
 
 
 class RegisterView(CreateView):

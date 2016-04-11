@@ -10,10 +10,7 @@ urlpatterns = [
     url(r'^(?P<climb>\d+)/delete_climb/$', ClimbDeleteView.as_view(), name='delete_climb'),
 
 
-
-
     # Account login, logout, register account
-    # url('', include('django.contrib.auth.urls')),
     url(r'^accounts/login/$', login, name='login'),
     url(r'^accounts/logout/$', logout, {'next_page': "/"}, name="logout"),
     url(r'^user/accounts/register/$', RegisterView.as_view(), name='user'),

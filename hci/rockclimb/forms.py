@@ -26,5 +26,4 @@ class ClimbCreateForm(ModelForm):
         model = Climb
         fields = '__all__'
         exclude = [
-            'user'
         ]
