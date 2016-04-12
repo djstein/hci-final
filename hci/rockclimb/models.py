@@ -44,8 +44,8 @@ class Climb(models.Model):
     )
 
     name = models.CharField(max_length=30)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='wsgi/static/img', blank=True)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='static/img',null=True, blank=True) #not sure why this isnt
     difficulty = models.IntegerField(choices=DIFFICULTY, default=FIVE)
     grade = models.CharField(max_length=1, choices=GRADE, default=A)
     notes = models.TextField(default="")
@@ -54,3 +54,5 @@ class Attempt(models.Model):
     climb = models.ForeignKey(Climb)
     date = models.DateField()
     attempt_notes = models.TextField(default="")
+
+

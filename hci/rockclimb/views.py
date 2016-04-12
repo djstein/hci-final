@@ -43,6 +43,13 @@ class ClimbView(LoginRequiredMixin, TemplateView):
     """
     template_name = 'rockclimb/climb.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(DashboardView, self).get_context_data()
+        climb = Climb.objects.all()
+        context['climb'] = climb
+
+        return context
+
 class ClimbCreateView(LoginRequiredMixin, CreateView):
     template_name = 'rockclimb/create_climb.html'
     form_class = ClimbCreateForm
