@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView, DeleteView
+from django.views.generic import TemplateView, CreateView, DeleteView, DetailView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -35,18 +35,19 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         return context
 
 
-class ClimbView(LoginRequiredMixin, TemplateView):
+class ClimbView(LoginRequiredMixin, DetailView):
     """
     TemplateView for Climb Page
 
     Attributes:
         template_name (str): Template to be rendered
     """
+    model = Climb
     template_name = 'rockclimb/climb.html'
 
     def get_context_data(self, **kwargs):
         context = super(ClimbView, self).get_context_data()
-        climb = Climb.objects.filter(user=self.request.user)
+        climb = Climb.objects.get(user=self.request.user)
         context['climb'] = climb
 
         return context
