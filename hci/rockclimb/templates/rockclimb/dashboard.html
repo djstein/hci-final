@@ -5,7 +5,7 @@
 {% if climb %}
 	<div class="row ">
 	{% for climb in climb %}
-		<div class = "col-xs-12 col-sm-6 ">
+		<div class = "col-xs-12 col-sm-4 ">
 			<div class="thumbnail" id="box-shadow">
 
 				<a href={% url 'climb' pk=climb.pk %} data-lightbox="climbImages" data-title="{{climb.name}}" class="thumbnail" id="thumbnail">
@@ -23,7 +23,7 @@
 	    {% if forloop.counter|divisibleby:"3" and not forloop.last %}
 	        </div><div class="row">
 	    {% endif %}
-		{% endfor %}
+	{% endfor %}
 	</div>
 {% else %}
 	<p> No climbs </p>
