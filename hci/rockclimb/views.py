@@ -30,7 +30,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(DashboardView, self).get_context_data()
-        climb = Climb.objects.all()
+        climb = Climb.objects.filter(user=self.request.user)
         context['climb'] = climb
 
         return context
