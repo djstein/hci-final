@@ -14,10 +14,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ON_OPENSHIFT = False
-if 'OPENSHIFT_REPO_DIR' in os.environ:
-    ON_OPENSHIFT = True
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -78,43 +74,18 @@ TEMPLATES = [
     },
 ]
 
-if ON_OPENSHIFT:
-    # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = True
-    TEMPLATE_DEBUG = True
-    ALLOWED_HOSTS = ['*']
-    # Database
-    # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+DEBUG = True
+TEMPLATE_DEBUG = False
+ALLOWED_HOSTS = []
+# Database
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'test',
-            'USER': 'adminqd7lala',
-            'PASSWORD': 'OPENSHIFT_POSTGRESQL_DB_PASSWORD',
-            'HOST': 'postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGREST_DB_PORT',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-
-    MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'),'media')
-
-else:
-    DEBUG = True
-    TEMPLATE_DEBUG = False
-    ALLOWED_HOSTS = []
-    # Database
-    # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-    
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'wsgi', 'media')
-
-MEDIA_URL = '/media/'
+}
 
 
 # Password validation
@@ -154,8 +125,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'wsgi', 'static')
-
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

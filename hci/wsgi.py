@@ -8,4 +8,4 @@ try:
 except IOError:
     pass
 
-from boostourteam.wsgi import application
+from rockclimb.wsgi import application

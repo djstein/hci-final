@@ -9,7 +9,7 @@
 			<div class="thumbnail" id="box-shadow">
 
 				<a href={% url 'climb' pk=climb.pk %} data-lightbox="climbImages" data-title="{{climb.name}}" class="thumbnail" id="thumbnail">
-				<img id="climbImages" src= "/{{ climb.image }}" alt="{{climb.name}}">
+				<img id="climbImages" src="/media/{{ climb.image }}" alt="{{climb.name}}">
 				<br>
 				</a>
 				<div class="text-center" id="image-text">
