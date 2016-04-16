@@ -2,24 +2,24 @@
 {% block content %}
 {% load staticfiles %}
 
+<div class="col-sm-9 col-md-12 main">
+
 {% if climb %}
 	<div class="row ">
 	{% for climb in climb %}
 		<div class = "col-xs-12 col-sm-4 ">
-			<div class="thumbnail" id="box-shadow">
-                                            {% if climb.image %}
-                                                <a href={% url 'climb' climb=climb.pk %} data-lightbox="climbImages" data-title="{{climb.name}}" class="thumbnail text-center" id="thumbnail">
-    				    <img id="climbImages" src="{{ climb.image.url }}" alt="{{climb.name}}">
-                                                <br>
-                                                <h3>{{ climb.name }}</h3> 
-                                                <p>5.{{ climb.difficulty }}{{climb.grade}}</p><br>
-                                            {% else %}   
-                                            <a href={% url 'climb' climb=climb.pk %} data-lightbox="climbImages" data-title="{{climb.name}}" class="text-center">
-                                                <h3>{{ climb.name }}</h3> 
-                                                <p>5.{{ climb.difficulty }}{{climb.grade}}</p><br>
-                                            {% endif %}
-                                            </a>
-			</div>
+            {% if climb.image %}
+                <a href={% url 'climb' climb=climb.pk %} data-lightbox="climbImages" data-title="{{climb.name}}" class="thumbnail text-center" id="thumbnail">
+				<img id="climbImages" src="{{ climb.image.url }}" alt="{{climb.name}}">
+                
+                <h3>{{ climb.name }}</h3> 
+                <p>5.{{ climb.difficulty }}{{climb.grade}}</p><br>
+            {% else %}   
+            <a href={% url 'climb' climb=climb.pk %} data-lightbox="climbImages" data-title="{{climb.name}}" class="text-center">
+                <h3>{{ climb.name }}</h3> 
+                <p>5.{{ climb.difficulty }}{{climb.grade}}</p><br>
+            {% endif %}
+            </a>
 		</div>
 
 		<!-- if last column in row -->
@@ -31,6 +31,6 @@
 {% else %}
 	<p> No climbs </p>
 {% endif %}
-
+</div>
 
 {% endblock %}
