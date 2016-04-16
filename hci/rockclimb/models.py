@@ -45,7 +45,7 @@ class Climb(models.Model):
 
     name = models.CharField(max_length=30)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='img', blank=True, null="True")
+    image = models.ImageField(upload_to='img', blank=True)
     difficulty = models.IntegerField(choices=DIFFICULTY, default=FIVE)
     grade = models.CharField(max_length=1, choices=GRADE, default=A)
     notes = models.TextField(default="", blank=True)

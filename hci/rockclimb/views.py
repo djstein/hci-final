@@ -45,12 +45,8 @@ class ClimbView(LoginRequiredMixin, DetailView):
     model = Climb
     template_name = 'rockclimb/climb.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(ClimbView, self).get_context_data()
-        climb = Climb.objects.get(user=self.request.user)
-        context['climb'] = climb
-
-        return context
+    def get_object(self):
+        return Climb.objects.get(pk=self.kwargs['climb'])
 
 
 class ClimbCreateView(LoginRequiredMixin, CreateView):
@@ -64,6 +60,7 @@ class ClimbCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         # Select the logged in user to be associated with the climb
         form.instance.user = self.request.user
+        print "IMAGE: ", form.instance.image
         response = super(ClimbCreateView, self).form_valid(form)
         return response
 
