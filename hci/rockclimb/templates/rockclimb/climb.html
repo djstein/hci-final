@@ -3,6 +3,6 @@
 {% load staticfiles %}
 <h1>{{climb.name}}</h1>
 <div class="row">
-	<img  class="img-responsive" id="climbImages" src="/media/{{ climb.image }}" alt="{{climb.name}}">
+	<img  class="img-responsive" id="climbImages" src="{{ climb.image.url }}" alt="{{climb.name}}">
 </div>
 {% endblock %}
