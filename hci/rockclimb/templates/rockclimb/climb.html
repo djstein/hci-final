@@ -46,8 +46,6 @@
 
 		// $('#myCanvas').css('height', getImageHeight());
 		// $('#myCanvas').css('width', getImageWidth());
-
-
 		ctx = document.getElementById('myCanvas').getContext("2d");
 
 		
@@ -69,11 +67,13 @@
 	}
 	
 	function clearArea() {
-    // Use the identity matrix while clearing the canvas
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+	    // Use the identity matrix while clearing the canvas
+	    ctx.setTransform(1, 0, 0, 1, 0, 0);
+	    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+	    setUp();
 	}
 </script>
+
 <script>
 		// Source: https://davidwalsh.name/convert-canvas-image
 		// wo = window.onload;
@@ -109,9 +109,6 @@
 			var ctx=c.getContext("2d");
 			var img=document.getElementById("climbImages");
 			ctx.drawImage(img,0,0);
-
-
-
 
 			// Converts image to canvas; returns new canvas element
 
@@ -153,7 +150,7 @@
 	</script>
 	<div class="row">
 		<img  class="img-responsive" id="climbImages" src="{{ climb.image.url }}" alt="{{climb.name}}" onload="InitThis();" style="display: none;">
-		<button onclick="window.location.reload()">Clear Area</button>
+		<button onclick="clearArea()">Clear Area</button>
 		<button id="opener">Save image with current route.</button>
 		Line width : <select id="selWidth">
 		<option value="1">1</option>
