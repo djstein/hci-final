@@ -119,7 +119,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'rockclimb/staticfiles')
 
-STATIC_URL = 'rockclimb/static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'rockclimb/static'),
