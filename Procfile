@@ -1,1 +1,1 @@
-web: gunicorn rockclimb.wsgi
+web: gunicorn hci.wsgi

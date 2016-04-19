@@ -30,14 +30,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'hci',
+    'rockclimb',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hci',
-    'rockclimb',
+    
 ]
 
 MIDDLEWARE_CLASSES = [
