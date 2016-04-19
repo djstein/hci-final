@@ -1,1 +1,1 @@
-web: gunicorn bschwarz.wsgi
+web: gunicorn hci.wsgi
