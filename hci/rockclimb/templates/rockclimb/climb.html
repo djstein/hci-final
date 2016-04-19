@@ -80,8 +80,8 @@
 		// window.onload 
 		function setUp() {
 
-                $("climbImages").css("height", 1000);
-				$("climbImages").css("width", 1000);
+    //             $("climbImages").css("height", 1000);
+				// $("climbImages").css("width", 1000);
 			// wo && wo.call(null);
 			$('#myCanvas').mousedown(function (e) {
 				mousePressed = true;
@@ -145,31 +145,63 @@
 			var newImage = convertCanvasToImage(canvas);
 		}
 
+		$(document).ready(function() {
+			var colors = ["blue", "red", "green", "orange", "purple", "lime"];
+			var arrayLength = colors.length;
+			$('#selColor').change(function() {
+				var current = $("#selColor").val();
+				for (var i = 0; i < arrayLength; i++) {
+					if (colors[i] == current) {
+						$('#selColor').css('color', current);
+					}
+				}
+			});
+		});
 
 
 	</script>
 	<div class="row">
-		<img  class="img-responsive" id="climbImages" src="{{ climb.image.url }}" alt="{{climb.name}}" onload="InitThis();" style="display: none;">
-		<button onclick="clearArea()">Clear Area</button>
-		<button id="opener">Save image with current route.</button>
-		Line width : <select id="selWidth">
-		<option value="1">1</option>
-		<option value="3" selected="selected">3</option>
-		<option value="5">5</option>
-		<option value="7">7</option>
-		<option value="9">9</option>
-		<option value="11">11</option>
-	</select>
-	Color : <select id="selColor">
-	<option value="black">black</option>
-	<option value="blue" selected="selected">blue</option>
-	<option value="red">red</option>
-	<option value="green">green</option>
-	<option value="yellow">yellow</option>
-	<option value="gray">gray</option>
-</select>
-<canvas id="myCanvas" width="1000" height="1000" ></canvas>
-<div id="dialog-confirm">
-  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Are you sure you want to save your route as it currently is?</p>
-</div>
+		<div id="	">
+			<img  class="img-responsive" id="climbImages" src="{{ climb.image.url }}" alt="{{climb.name}}" onload="InitThis();" style="display: none;">
+			<button onclick="clearArea()">Clear Area</button>
+			<button id="opener">Save image with current route.</button>
+			Line width : 
+			<select id="selWidth">
+				<option value="1">1</option>
+				<option value="3" selected="selected">3</option>
+				<option value="5">5</option>
+				<option value="7">7</option>
+				<option value="9">9</option>
+				<option value="11">11</option>
+			</select>
+			Color : 
+			<select id="selColor" style="color: blue">
+				<option value="blue" selected="selected" style="color: blue">Route Line</option>
+				<option value="red" style="color: red">Hand Holds</option>
+				<option value="green" style="color: green">Foot Holds</option>
+				<option value="orange" style="color: orange">Both</option>
+				<option value="purple" style="color: purple">Anchor</option>
+				<option value="lime" style="color: lime">Bolts</option>
+			</select>
+		</div>
+		<div id="Legend">
+			<h3>Legend</h3>
+			<ul>
+				<li style="color: blue">Blue - Route Line</li>
+				<li style="color: red">Red - Hand Holds</li>
+				<li style="color: green">Green - Foot Holds</li>
+				<li style="color: orange">Orange - Both</li>
+				<li style="color: purple">Purple - Anchor</li>
+				<li style="color: lime">Lime - Bolts</li>
+			</ul>
+		</div>	
+		<div id="dialog-confirm">
+		  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Are you sure you want to save your route as it currently is?</p>
+		</div>
+	</div>
+	<div class="row" id="SecondRow">
+		<div id="CanvasWrapper">
+			<canvas id="myCanvas" width="1000" height="1000"></canvas>
+		</div>
+	</div>
 {% endblock %}

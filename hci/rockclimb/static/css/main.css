@@ -11,6 +11,7 @@ body {
 
 #myCanvas {
 	margin: 1%;
+	width: 1000px
 }
 
 .ui-dialog-titlebar-close {
@@ -65,4 +66,34 @@ body {
 #overlay:hover #climbImages {
 	
 }
+
+.MainFeature {
+	text-align: center;
+	font-size: large;
+	text-decoration: underline;
+}
+
+#TopBar {
+	text-decoration: underline;
+	/*border: 1px solid black;*/
+}
+
+#SecondRow {
+	display: inline;
+	width: 100%;
+}
+
+#Legend {
+	width: 200px;
+	text-align: center;
+}
+
+#CanvasWrapper {
+	display: inline;
+}
+
+#RouteMakerButtons {
+	padding-top: 50%;	
+}
+
 

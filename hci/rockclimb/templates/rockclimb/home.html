@@ -1,9 +1,11 @@
 {% extends 'rockclimb/base.html' %}
 {% block content %}
 {% load staticfiles %}
-<h1> HOME </h1>
+<div class="MainFeature" style="font-weight: 30">
+	<h1> HOME </h1>
+	<a href="{% url 'dashboard' %}">View Climbs</a><br>
+	<a href="{% url 'create_climb' %}">Create a Climb</a>
 
-<a href="{% url 'dashboard' %}">View Climbs</a>
-
+</div>
 
 {% endblock %}
