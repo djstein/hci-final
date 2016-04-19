@@ -66,3 +66,6 @@ target/
 
 # Virtual Environment
 .env
+
+# Database
+db.sqlite3
