@@ -1,0 +1,68 @@
+body { 
+    padding-top: 65px; 
+}
+
+#dialog-confirm {
+	border: 3px solid black;
+	background-color: grey;
+	color: white;
+	font-size: x-large;
+}
+
+#myCanvas {
+	margin: 1%;
+}
+
+.ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+
+.ui-button-text {
+	margin: 5px;
+}
+
+.ContinueWorking {
+	margin-left: 5%;
+}
+
+.SaveImage {
+	margin-left: 4%;
+}
+
+#hoverToClimb {
+	border-bottom:2px solid #fff;
+	border-right:2px solid #fff;
+	margin:5% auto 0 auto; 
+	overflow:hidden;
+}
+
+#climbImages {
+	opacity: 1;
+}
+
+#overlay .text {
+	vertical-align: middle;
+	font-size: 50px;
+	font-family: Helvetica;
+	font-weight: 900;
+	color: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-95%);
+	text-align:center;
+	-webkit-transition: opacity .25s ease;
+	-moz-transition: opacity .25s ease;
+	visibility:hidden;
+	opacity: 0;
+}
+
+#overlay:hover .text {
+	visibility: visible;
+	opacity: 1;
+}
+
+#overlay:hover #climbImages {
+	
+}
+
