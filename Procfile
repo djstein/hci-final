@@ -1,1 +1,1 @@
-web: gunicorn hci.wsgi
+web: gunicorn hci_final.wsgi
