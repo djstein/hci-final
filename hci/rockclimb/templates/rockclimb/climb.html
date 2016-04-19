@@ -79,6 +79,9 @@
 		// wo = window.onload;
 		// window.onload 
 		function setUp() {
+
+                $("climbImages").css("height", 1000);
+				$("climbImages").css("width", 1000);
 			// wo && wo.call(null);
 			$('#myCanvas').mousedown(function (e) {
 				mousePressed = true;
@@ -106,7 +109,10 @@
 			var ctx=c.getContext("2d");
 			var img=document.getElementById("climbImages");
 			ctx.drawImage(img,0,0);
-			
+
+
+
+
 			// Converts image to canvas; returns new canvas element
 
 		}
