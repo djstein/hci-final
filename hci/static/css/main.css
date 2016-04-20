@@ -96,4 +96,6 @@ body {
 	padding-top: 50%;	
 }
 
-
+.CreateClimbButtons {
+	border-radius: 3px;
+}

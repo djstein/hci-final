@@ -1,7 +1,7 @@
 {% extends 'rockclimb/base.html' %}
 {% block content %}
 {% load staticfiles %}
-<h1>{{climb.name}}</h1>
+<h1 style="text-decoration: underline;">{{climb.name}}</h1>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -163,8 +163,8 @@
 	<div class="row">
 		<div id="	">
 			<img  class="img-responsive" id="climbImages" src="{{ climb.image.url }}" alt="{{climb.name}}" onload="InitThis();" style="display: none;">
-			<button onclick="clearArea()">Clear Area</button>
-			<button id="opener">Save image with current route.</button>
+			<button class="CreateClimbButtons"onclick="clearArea()">Clear Area</button>
+			<button class="CreateClimbButtons" id="opener">Save image with current route.</button>
 			Line width : 
 			<select id="selWidth">
 				<option value="1">1</option>
@@ -185,7 +185,7 @@
 			</select>
 		</div>
 		<div id="Legend">
-			<h3>Legend</h3>
+			<h3 style="	text-decoration: underline;">Legend</h3>
 			<ul>
 				<li style="color: blue">Blue - Route Line</li>
 				<li style="color: red">Red - Hand Holds</li>
