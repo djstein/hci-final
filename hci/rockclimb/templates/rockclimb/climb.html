@@ -160,13 +160,13 @@
 
 
 	</script>
-	<div class="row">
+	<div class="row" style="font-size: 20px;">
 		<div id="	">
 			<img  class="img-responsive" id="climbImages" src="{{ climb.image.url }}" alt="{{climb.name}}" onload="InitThis();" style="display: none;">
 			<button class="CreateClimbButtons"onclick="clearArea()">Clear Area</button>
 			<button class="CreateClimbButtons" id="opener">Save image with current route.</button>
 			Line width : 
-			<select id="selWidth">
+			<select id="selWidth" style="height: 65px;">
 				<option value="1">1</option>
 				<option value="3" selected="selected">3</option>
 				<option value="5">5</option>
@@ -175,7 +175,7 @@
 				<option value="11">11</option>
 			</select>
 			Color : 
-			<select id="selColor" style="color: blue">
+			<select id="selColor" style="color: blue; height: 65px;">
 				<option value="blue" selected="selected" style="color: blue">Route Line</option>
 				<option value="red" style="color: red">Hand Holds</option>
 				<option value="green" style="color: green">Foot Holds</option>
@@ -184,7 +184,13 @@
 				<option value="lime" style="color: lime">Bolts</option>
 			</select>
 		</div>
-		<div id="Legend">
+		
+		<div id="dialog-confirm">
+		  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Are you sure you want to save your route as it currently is?</p>
+		</div>
+	</div>
+	<div class="row" id="SecondRow">
+	<div id="Legend">
 			<h3 style="	text-decoration: underline;">Legend</h3>
 			<ul>
 				<li style="color: blue">Blue - Route Line</li>
@@ -195,11 +201,6 @@
 				<li style="color: lime">Lime - Bolts</li>
 			</ul>
 		</div>	
-		<div id="dialog-confirm">
-		  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Are you sure you want to save your route as it currently is?</p>
-		</div>
-	</div>
-	<div class="row" id="SecondRow">
 		<div id="CanvasWrapper">
 			<canvas id="myCanvas" width="1000" height="1000"></canvas>
 		</div>
